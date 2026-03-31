@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -22,39 +21,17 @@
     .buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .btn-yes { background: linear-gradient(135deg, #e8527a, #c7355f); color: #fff; border: none; border-radius: 50px; padding: 14px 40px; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; cursor: pointer; box-shadow: 0 6px 24px rgba(199,53,95,0.35); transition: transform 0.15s; }
     .btn-yes:hover { transform: scale(1.07); }
-
-```
-.btn-no {
-  background: #fff;
-  color: #b5265e;
-  border: 2px solid #f0aac8;
-  border-radius: 50px;
-  padding: 14px 34px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  cursor: pointer;
-  position: fixed;
-  z-index: 999;
-  transition: left 0.6s cubic-bezier(.22,.68,0,1.15),
-              top 0.6s cubic-bezier(.22,.68,0,1.15),
-              transform 0.6s ease,
-              font-size 0.35s ease,
-              padding 0.35s ease,
-              opacity 0.5s ease;
-}
-
-.yes-screen { display: none; flex-direction: column; align-items: center; justify-content: center; position: fixed; inset: 0; z-index: 50; animation: fadeIn 0.6s ease; text-align: center; padding: 20px; }
-.yes-screen.show { display: flex; }
-.yes-bg { position: fixed; inset: 0; background: linear-gradient(160deg, #ffdde9 0%, #fff0f6 50%, #ffe4f0 100%); z-index: 49; }
-.yes-gif { width: min(260px, 65vw); border-radius: 20px; box-shadow: 0 12px 40px rgba(210,80,130,0.22); animation: heartBeat 1.4s ease-in-out infinite; position: relative; z-index: 51; }
-@keyframes heartBeat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.05); } 28% { transform: scale(1); } 42% { transform: scale(1.04); } }
-.yes-text { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 700; font-style: italic; color: #b5265e; margin-top: 28px; position: relative; z-index: 51; }
-.yes-sub { font-size: 1.15rem; color: #d4748f; margin-top: 10px; position: relative; z-index: 51; }
-.yes-kitty { font-size: 4.5rem; margin-top: 16px; position: relative; z-index: 51; animation: bounce 1.6s ease-in-out infinite; }
-@keyframes bounce { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-12px) rotate(5deg); } }
-.confetti { position: fixed; pointer-events: none; z-index: 52; }
-```
-
+    .btn-no { background: #fff; color: #b5265e; border: 2px solid #f0aac8; border-radius: 50px; padding: 14px 34px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; cursor: pointer; position: fixed; z-index: 999; transition: left 0.6s cubic-bezier(.22,.68,0,1.15), top 0.6s cubic-bezier(.22,.68,0,1.15), transform 0.6s ease, font-size 0.35s ease, padding 0.35s ease, opacity 0.5s ease; }
+    .yes-screen { display: none; flex-direction: column; align-items: center; justify-content: center; position: fixed; inset: 0; z-index: 50; animation: fadeIn 0.6s ease; text-align: center; padding: 20px; }
+    .yes-screen.show { display: flex; }
+    .yes-bg { position: fixed; inset: 0; background: linear-gradient(160deg, #ffdde9 0%, #fff0f6 50%, #ffe4f0 100%); z-index: 49; }
+    .yes-heart { font-size: clamp(6rem, 30vw, 10rem); animation: heartBeat 1.2s ease-in-out infinite; position: relative; z-index: 51; line-height: 1; }
+    @keyframes heartBeat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.18); } 28% { transform: scale(1); } 42% { transform: scale(1.12); } }
+    .yes-text { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 700; font-style: italic; color: #b5265e; margin-top: 24px; position: relative; z-index: 51; }
+    .yes-sub { font-size: 1.15rem; color: #d4748f; margin-top: 10px; position: relative; z-index: 51; }
+    .yes-kitty { font-size: 4rem; margin-top: 16px; position: relative; z-index: 51; animation: bounce 1.6s ease-in-out infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-12px) rotate(5deg); } }
+    .confetti { position: fixed; pointer-events: none; z-index: 52; }
   </style>
 </head>
 <body>
@@ -75,17 +52,13 @@
 
 <div class="yes-screen" id="yesScreen">
   <div class="yes-bg"></div>
-  <img class="yes-gif"
-    src="https://media.tenor.com/YBfmZXn6sLkAAAAC/heart-love.gif"
-    alt="сердечко"
-    onerror="this.src='https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif'"/>
+  <div class="yes-heart">💖</div>
   <div class="yes-text">И я тебя люблю 💖</div>
   <div class="yes-sub">навсегда и чуть-чуть больше ✨</div>
   <div class="yes-kitty">🐱</div>
 </div>
 
 <script>
-  /* Petals */
   const petals = ['🌸','🌷','💮','🌺','🌼','💐'];
   const bg = document.getElementById('bg');
   for (let i = 0; i < 22; i++) {
@@ -99,7 +72,6 @@
     bg.appendChild(p);
   }
 
-  /* No button */
   const noBtn = document.getElementById('noBtn');
   let noClickCount = 0;
 
@@ -123,11 +95,8 @@
 
   function shrink() {
     const scale = Math.max(0.3, 1 - noClickCount * 0.09);
-    const fs = (1.2 * scale).toFixed(2);
-    const pv = Math.max(4,  14 * scale).toFixed(1);
-    const ph = Math.max(8,  34 * scale).toFixed(1);
-    noBtn.style.fontSize = fs + 'rem';
-    noBtn.style.padding  = pv + 'px ' + ph + 'px';
+    noBtn.style.fontSize = (1.2 * scale).toFixed(2) + 'rem';
+    noBtn.style.padding  = Math.max(4, 14 * scale).toFixed(1) + 'px ' + Math.max(8, 34 * scale).toFixed(1) + 'px';
     noBtn.style.opacity  = Math.max(0.35, scale).toFixed(2);
   }
 
@@ -137,15 +106,9 @@
     teleport();
   }
 
-  noBtn.addEventListener('mouseenter', () => {
-    if (noClickCount > 0) teleport();
-  });
-  noBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    runAway();
-  }, { passive: false });
+  noBtn.addEventListener('mouseenter', () => { if (noClickCount > 0) teleport(); });
+  noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); runAway(); }, { passive: false });
 
-  /* YES */
   function sayYes() {
     document.getElementById('overlay').style.display = 'none';
     noBtn.style.display = 'none';
@@ -173,6 +136,5 @@
     }
   }
 </script>
-
 </body>
 </html>
